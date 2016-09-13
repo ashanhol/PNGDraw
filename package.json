@@ -1,0 +1,17 @@
+{
+  "name": "hololensplanedraw",
+  "version": "1.0.0",
+  "description": "Receives an image, lets you draw on it in browser, sends it back",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "adina shanholtz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "3.4.8",
+    "fs": "0.0.1-security",
+    "socket.io": "^1.4.5"
+  }
+}
