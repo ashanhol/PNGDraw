@@ -1,7 +1,7 @@
 //read an image over socket.io
 var socket = io();
-socket.on('image', function(data) {
-    var uint8Arr = new Uint8Array(data.buffer);
+socket.on('sendimage', function(data) {
+    var uint8Arr = new Uint8Array(data);
     var binary = '';
     for (var i = 0; i < uint8Arr.length; i++) {
         binary += String.fromCharCode(uint8Arr[i]);
@@ -119,7 +119,7 @@ socket.on('image', function(data) {
     //Send the canvas over socket.io
     var finalPNG;
     $( "#send" ).click(function() {
-        finalPNG = canv.toDataURL("image/png");
+        socket.emit('sendimage', canv.toDataURL("image/png"));
     });
 
 });

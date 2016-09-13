@@ -11,8 +11,12 @@ server.listen(port);
 app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket){
-    fs.readFile('image1.JPG', function(err, buffer){
-        socket.emit('image', { buffer: buffer });
+    socket.on('sendimage', function(msg){
+        socket.broadcast.emit(msg);
     });
+
+ //   fs.readFile('image1.JPG', function(err, buffer){
+    //    socket.emit('image', { buffer: buffer });
+  //  });
 });
 
