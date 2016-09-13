@@ -1,13 +1,16 @@
 //read an image over socket.io
 var socket = io();
 socket.on('sendimage', function(data) {
-    var uint8Arr = new Uint8Array(data);
-    var binary = '';
-    for (var i = 0; i < uint8Arr.length; i++) {
-        binary += String.fromCharCode(uint8Arr[i]);
-    }
-    var base64String = window.btoa(binary);
+    // console.log("got an image");
+    // console.log(data)
+    // var uint8Arr = new Uint8Array(data);
+    // var binary = '';
+    // for (var i = 0; i < uint8Arr.length; i++) {
+    //     binary += String.fromCharCode(uint8Arr[i]);
+    // }
+    // var base64String = window.btoa(binary);
 
+    var base64String = data;
     var img = new Image();
     var canv = document.getElementById('mycanvas');
     var ctx = canv.getContext('2d');
@@ -23,7 +26,7 @@ socket.on('sendimage', function(data) {
         var x = 0, y = 0;
         ctx.drawImage(this, x, y);
     }
-    img.src = 'data:image/jpg;base64,' + base64String;
+    img.src = base64String;//'data:image/jpg;base64,' + base64String;
 
     //drawing
     var clickX = new Array();
@@ -119,7 +122,7 @@ socket.on('sendimage', function(data) {
     //Send the canvas over socket.io
     var finalPNG;
     $( "#send" ).click(function() {
-        socket.emit('sendimage', canv.toDataURL("image/png"));
+        socket.emit('sendimage', canv.toDataURL());
     });
 
 });
