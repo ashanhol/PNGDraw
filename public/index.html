@@ -1,18 +1,12 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<meta name="viewport" content="maximum-scale=1, user-scalable=no">
-
-<head>
-    <title>Edit A Surface</title>
-      <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script src="js/socket.io-1.4.5.js"></script>
-</head>
-
-<body>
-    <div id="ontop"></div>
-    <div id="textcontainer">
-        <div id="text"></div>
-    </div>
+   <head>
+      <title>MiniDoodle</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="style.css" />
+      <script src="socket.io/socket.io.js"></script>
+   </head>
+   <body>
     <button type="button" id="purplebtn" style="border: 1px solid purple;">Purple</button>
     <button type="button" id="greenbtn" style="border: 1px solid green;">Green</button>
     <button type="button" id="yellowbtn" style="border: 1px solid yellow;">Yellow</button>
@@ -21,14 +15,7 @@
     <button type="button" id="clear">Clear</button>
     <button type="button" id="send">Send</button>
 
-
-
-    <div id="container">
-        <canvas id="mycanvas">
-            </canvas>
-    </div>
-    <script src="js/drawing.js"></script>    
-  
-</body>
-
+      <canvas id="drawing"></canvas>
+     <script src="client.js"></script>
+   </body>
 </html>
